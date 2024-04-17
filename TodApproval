@@ -1,0 +1,27 @@
+// ==UserScript==
+// @name         Redirect Button
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  Add a button to redirect to a link
+// @author       @viivek
+// @match        *://*/*
+// @grant        none
+// ==/UserScript==
+(function() {
+    'use strict';
+    // URL you want to redirect to
+    var redirectUrl = "https://sim.amazon.com/issues/create";
+    // Create a button element
+    var button = document.createElement("button");
+    button.innerHTML = "Go to Example.com";
+    button.style.position = "fixed";
+    button.style.bottom = "20px";
+    button.style.right = "20px";
+    button.style.zIndex = "9999";
+    // Append the button to the body
+    document.body.appendChild(button);
+    // Add click event listener to the button
+    button.addEventListener ("click", function() {
+        window.location.href = redirectUrl;
+    });
+})();
